@@ -1,6 +1,6 @@
 package cc.fxea.test.config;
 
-import cc.fxea.test.annotation.TargetDateSource;
+import cc.fxea.test.annotation.TargetDataSource;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -19,10 +19,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class RoutingAopAspect {
 
-    @Around("@annotation(targetDateSource)")
-    public Object routingWithDataSource(ProceedingJoinPoint joinPoint, TargetDateSource targetDateSource) throws Throwable {
+    @Around("@annotation(targetDataSource)")
+    public Object routingWithDataSource(ProceedingJoinPoint joinPoint, TargetDataSource targetDataSource) throws Throwable {
         try {
-            DynamicRoutingDataSourceContext.setRoutingDataSource(targetDateSource.value());
+            DynamicRoutingDataSourceContext.setRoutingDataSource(targetDataSource.value());
             return joinPoint.proceed();
         } finally {
             DynamicRoutingDataSourceContext.removeRoutingDataSource();

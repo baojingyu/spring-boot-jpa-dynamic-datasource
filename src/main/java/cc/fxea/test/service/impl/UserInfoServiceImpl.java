@@ -1,6 +1,6 @@
 package cc.fxea.test.service.impl;
 
-import cc.fxea.test.annotation.TargetDateSource;
+import cc.fxea.test.annotation.TargetDataSource;
 import cc.fxea.test.domain.UserInfoEntity;
 import cc.fxea.test.repository.IUserInfoRepository;
 import cc.fxea.test.service.IUserInfoService;
@@ -25,7 +25,7 @@ public class UserInfoServiceImpl implements IUserInfoService {
     @Autowired
     private IUserInfoRepository userInfoRepository;
 
-    @TargetDateSource(value = "slave")
+    @TargetDataSource(value = "slave")
     @Override
     public List<UserInfoEntity> findAll() {
         return userInfoRepository.findAll();
@@ -37,7 +37,7 @@ public class UserInfoServiceImpl implements IUserInfoService {
         return userInfoRepository.save(userInfoEntity);
     }
 
-    @TargetDateSource(value = "slave")
+    @TargetDataSource(value = "slave")
     @Override
     public UserInfoEntity findById(Long id) {
         Optional<UserInfoEntity> userInfoEntity = userInfoRepository.findById(id);
