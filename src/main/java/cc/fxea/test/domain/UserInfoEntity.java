@@ -22,7 +22,8 @@ public class UserInfoEntity {
     private Date createTime;
     private Date modifyTime;
 
-    @GeneratedValue
+    //设置ID 为主键自增
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
     public long getId() {

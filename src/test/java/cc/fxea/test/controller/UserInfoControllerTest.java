@@ -20,7 +20,7 @@ class UserInfoControllerTest {
 
     @Test
     void findAll() {
-        String reqUrl = "http://localhost:8080/findAll";
+        String reqUrl = "http://localhost:8080/api/user-info/findAll";
         String result = get(reqUrl);
         System.out.println(result);
     }
